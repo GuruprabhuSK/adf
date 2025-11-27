@@ -148,7 +148,7 @@
 							"source": {
 								"type": "AzureSqlSource",
 								"sqlReaderQuery": {
-									"value": "select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
+									"value": "select *\nfrom data_source_table\nwhere LastModifytime > @{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}\n  and LastModifytime <= @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}\n",
 									"type": "Expression"
 								},
 								"queryTimeout": "02:00:00",
