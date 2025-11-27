@@ -5,7 +5,13 @@
 		"factoryName": {
 			"value": "gurusadf12345"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
 		"sql2adls_password": {
@@ -13,6 +19,15 @@
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://guruadls.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "guruserver123.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "gurudb"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "guru"
 		},
 		"RestService1_properties_typeProperties_url": {
 			"value": "https://retoolapi.dev/5yDVOt/data"
