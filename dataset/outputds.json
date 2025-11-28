@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "sampledata"
+				"folderPath": "guru",
+				"fileSystem": "new"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
