@@ -1,5 +1,5 @@
 {
-	"name": "pipeline5",
+	"name": "foreach new",
 	"properties": {
 		"activities": [
 			{
@@ -97,7 +97,7 @@
 									"parameters": {
 										"schema": "dbo",
 										"table": {
-											"value": "@item().name",
+											"value": "@item().TABLE_NAME",
 											"type": "Expression"
 										}
 									}
