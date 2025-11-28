@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Person.Address.txt",
-				"fileSystem": "newcontainer1"
+				"folderPath": "guru",
+				"fileSystem": "sampledata"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
