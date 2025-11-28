@@ -39,6 +39,10 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
+										"wildcardFolderPath": {
+											"value": "guru",
+											"type": "Expression"
+										},
 										"wildcardFileName": {
 											"value": "@item().name",
 											"type": "Expression"
@@ -132,7 +136,7 @@
 						"type": "Expression"
 					},
 					"condition": {
-						"value": "@contains(item().name,'Person' )",
+						"value": "@contains(item().name,'sales' )",
 						"type": "Expression"
 					}
 				}
