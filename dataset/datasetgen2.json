@@ -19,8 +19,8 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"folderPath": "schemaoutput",
-				"fileSystem": "day7adf"
+				"folderPath": "guru",
+				"fileSystem": "sampledata"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
