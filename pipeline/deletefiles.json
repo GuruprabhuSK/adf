@@ -17,7 +17,10 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "datasetgen2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": "--"
+						}
 					},
 					"logStorageSettings": {
 						"linkedServiceName": {

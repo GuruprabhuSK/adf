@@ -50,7 +50,10 @@
 				"inputs": [
 					{
 						"referenceName": "datasetgen2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": "--"
+						}
 					}
 				],
 				"outputs": [
