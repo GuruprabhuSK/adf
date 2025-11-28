@@ -5,13 +5,22 @@
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Person.Address.txt",
-				"fileSystem": "newcontainer1"
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": "schemaoutput",
+				"fileSystem": "day7adf"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
