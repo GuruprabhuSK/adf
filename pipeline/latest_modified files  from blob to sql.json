@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "getmetadatads",
+						"referenceName": "DelimitedText2new",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -141,7 +141,7 @@
 										"typeProperties": {
 											"variableName": "Latestfile",
 											"value": {
-												"value": "@activity('Latest File').output.itemName",
+												"value": "@item().name\r\n",
 												"type": "Expression"
 											}
 										}
@@ -226,11 +226,12 @@
 		],
 		"variables": {
 			"Latestfile": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "null"
 			},
 			"RefDatetime": {
 				"type": "String",
-				"defaultValue": "1900-01-01 00:00:00"
+				"defaultValue": "2025-11-27 00:00:00"
 			}
 		},
 		"annotations": []
