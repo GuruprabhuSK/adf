@@ -1,21 +1,16 @@
 {
-	"name": "blobd_s",
+	"name": "newblob",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"FileName": {
-				"type": "string"
-			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "new",
+				"folderPath": "guru",
 				"container": "raw"
 			},
 			"columnDelimiter": ",",

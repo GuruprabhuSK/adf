@@ -1,5 +1,5 @@
 {
-	"name": "latest multiple  files from blob to sql",
+	"name": "latest multiple  files from blob",
 	"properties": {
 		"activities": [
 			{

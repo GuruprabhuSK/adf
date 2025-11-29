@@ -19,8 +19,8 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"folderPath": "guru",
-				"fileSystem": "sampledata"
+				"folderPath": "NEWGURU",
+				"fileSystem": "newcontainer1"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
