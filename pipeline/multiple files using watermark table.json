@@ -136,7 +136,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@greater(activity('Get Metadata2').output.lastModified,activity('Get Metadata1').output.firstRow.WatermarkValue )",
+									"value": "@greater(activity('Get Metadata2').output.lastModified,activity('Oldwatermark').output.firstRow.WatermarkValue)",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
