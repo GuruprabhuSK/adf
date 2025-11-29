@@ -118,7 +118,10 @@
 				"outputs": [
 					{
 						"referenceName": "blobd_s",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": "--"
+						}
 					}
 				]
 			},

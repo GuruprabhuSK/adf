@@ -59,6 +59,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -103,7 +104,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"FileName": {
-											"value": "item().name",
+											"value": "@item().name",
 											"type": "Expression"
 										}
 									}
@@ -113,6 +114,7 @@
 								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
