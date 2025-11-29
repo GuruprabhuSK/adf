@@ -92,7 +92,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "select MAX(LastModifytime) as NewWatermarkvalue from '@{item().TABLE_NAME}'",
+										"value": "select MAX(LastModifytime) as NewWatermarkvalue from item().TABLE_NAME",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
