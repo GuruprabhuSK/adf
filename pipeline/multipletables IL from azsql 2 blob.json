@@ -63,7 +63,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "SELECT *\nFROM watermarktable\nWHERE TableName = '@{item().TABLE_NAME}'",
+										"value": "SELECT WatermarkValue\nFROM watermarktable\nWHERE TableName = '@{item().TABLE_NAME}'",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
@@ -73,7 +73,7 @@
 									"referenceName": "ds_watermark",
 									"type": "DatasetReference"
 								},
-								"firstRowOnly": false
+								"firstRowOnly": true
 							}
 						},
 						{
@@ -92,7 +92,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "select MAX(LastModifytime) as NewWatermarkvalue from item().TABLE_NAME",
+										"value": "DECLARE @tbl NVARCHAR(200) = '@{item().TABLE_NAME}';\nEXEC('SELECT MAX(LastModifytime) AS NewWatermarkvalue FROM ' + @tbl);",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
@@ -102,7 +102,7 @@
 									"referenceName": "AzureSqlTableds",
 									"type": "DatasetReference"
 								},
-								"firstRowOnly": false
+								"firstRowOnly": true
 							}
 						},
 						{
@@ -134,7 +134,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "SELECT *\nFROM '@{item().TABLE_NAME}'\nWHERE LastModifyTime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}'\n  AND LastModifyTime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'\n",
+										"value": "DECLARE @tbl NVARCHAR(200) = '@{item().TABLE_NAME}';\n\nDECLARE @oldWM DATETIME = CONVERT(DATETIME,\n    '@{replace(activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue, 'T', ' ')}', 121);\n\nDECLARE @newWM DATETIME = CONVERT(DATETIME,\n    '@{replace(activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue, 'T', ' ')}', 121);\n\nEXEC('SELECT * FROM dbo.' + @tbl +\n     ' WHERE LastModifyTime > ''' + CONVERT(NVARCHAR(30), @oldWM, 121) +\n     ''' AND LastModifyTime <= ''' + CONVERT(NVARCHAR(30), @newWM, 121) + '''');\n",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
