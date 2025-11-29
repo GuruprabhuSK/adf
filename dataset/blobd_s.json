@@ -15,7 +15,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "new",
 				"container": "raw"
 			},
 			"columnDelimiter": ",",
