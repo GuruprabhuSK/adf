@@ -134,7 +134,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "DECLARE @tbl NVARCHAR(200) = '@{item().TABLE_NAME}';\n\nDECLARE @oldWM DATETIME = CONVERT(DATETIME,\n    '@{replace(activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue, 'T', ' ')}', 121);\n\nDECLARE @newWM DATETIME = CONVERT(DATETIME,\n    '@{replace(activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue, 'T', ' ')}', 121);\n\nEXEC('SELECT * FROM dbo.' + @tbl +\n     ' WHERE LastModifyTime > ''' + CONVERT(NVARCHAR(30), @oldWM, 121) +\n     ''' AND LastModifyTime <= ''' + CONVERT(NVARCHAR(30), @newWM, 121) + '''');\n",
+										"value": "DECLARE @tbl NVARCHAR(200) = '@{item().TABLE_NAME}';\n\nDECLARE @oldWM NVARCHAR(50) =\n    REPLACE('@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}', 'T', ' ');\n\nDECLARE @newWM NVARCHAR(50) =\n    REPLACE('@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}', 'T', ' ');\n\n-- Remove trailing Z\nSET @oldWM = REPLACE(@oldWM, 'Z', '');\nSET @newWM = REPLACE(@newWM, 'Z', '');\n\nDECLARE @sql NVARCHAR(MAX) =\n'SELECT *\n FROM dbo.' + @tbl + '\n WHERE LastModifyTime > ''' + @oldWM + '''\n AND LastModifyTime <= ''' + @newWM + '''';\n\nEXEC(@sql);\n",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
@@ -198,14 +198,14 @@
 								"storedProcedureParameters": {
 									"LastModifiedtime": {
 										"value": {
-											"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue",
+											"value": "@{item().NewWatermarkvalue}",
 											"type": "Expression"
 										},
 										"type": "DateTime"
 									},
 									"TableName": {
 										"value": {
-											"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
+											"value": "@{item().TABLE_NAME}\n",
 											"type": "Expression"
 										},
 										"type": "String"
