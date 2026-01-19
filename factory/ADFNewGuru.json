@@ -1,0 +1,9 @@
+{
+	"name": "ADFNewGuru",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ef63b34c-014f-4c9c-bd12-7382f845df3c",
+		"tenantId": "7df6242e-93e8-4b7e-bad8-57e25993bbb9"
+	}
+}
